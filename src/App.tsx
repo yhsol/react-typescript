@@ -1,22 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const App: React.FC = () => {
+  const [counter, setCounter] = useState<number>(0);
+  const add = () => {
+    setCounter(counter + 1);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div>{counter}</div>
+      <button onClick={add}>+</button>
+    </>
   );
 };
 
