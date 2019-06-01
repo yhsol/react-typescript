@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Input } from "./input";
+import Number from "./number";
 
 const App: React.FC = () => {
   const [counter, setCounter] = useState<number>(0);
@@ -19,10 +20,11 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Form onFormSubmit={onFormSubmit}>
+      {/* <Form onFormSubmit={onFormSubmit}>
         <Input value={value} onChange={onChange} />
       </Form>
-      <div>{counter}</div>
+      <div>{counter}</div> */}
+      <Number counter={counter} />
       <button onClick={add}>+</button>
     </>
   );
