@@ -19,6 +19,8 @@ const App: React.FC = () => {
     setCounter(counter + 1);
   };
 
+  const onClick = (name: string) => console.log(`${name} says hello`);
+
   return (
     <>
       {/* <Form onFormSubmit={onFormSubmit}>
@@ -26,7 +28,7 @@ const App: React.FC = () => {
       </Form>
       <div>{counter}</div> */}
       <Number counter={counter} />
-      <Greetings name={"hansol"} mark={"!"} />
+      <Greetings name={"hansol"} mark={"!"} onClick={onClick} />
       <button onClick={add}>+</button>
     </>
   );
