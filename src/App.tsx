@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { Form, Input } from "./input";
 import Number from "./number";
 import Greetings from "./Greetings";
+import Count from "./Count";
+import MyForm from "./MyForm";
+import ReducerSample from "./ReducerSample";
+import TodoForm from "./Todo/TodoForm";
+import TodoList from "./Todo/TodoList";
 
 const App: React.FC = () => {
   const [counter, setCounter] = useState<number>(0);
@@ -21,15 +26,17 @@ const App: React.FC = () => {
 
   const onClick = (name: string) => console.log(`${name} says hello`);
 
+  const onSubmit = (form: { name: string; description: string }) => {
+    console.log(form);
+  };
+
   return (
     <>
-      {/* <Form onFormSubmit={onFormSubmit}>
-        <Input value={value} onChange={onChange} />
-      </Form>
-      <div>{counter}</div> */}
-      <Number counter={counter} />
-      <Greetings name={"hansol"} mark={"!"} onClick={onClick} />
-      <button onClick={add}>+</button>
+      <Count />
+      <MyForm onSubmit={onSubmit} />
+      <ReducerSample />
+      <TodoForm />
+      <TodoList />
     </>
   );
 };
