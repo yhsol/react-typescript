@@ -1,4 +1,4 @@
-import { createContext, Dispatch } from "react";
+import React, { createContext, Dispatch, useReducer, useContext } from "react";
 
 export type Todo = {
   id: number;
@@ -8,7 +8,7 @@ export type Todo = {
 
 type TodosState = Todo[];
 
-const TodoStateContext = createContext<TodosState | undefined>(undefined);
+const TodosStateContext = createContext<TodosState | undefined>(undefined);
 
 type Action =
   | { type: "CREATE"; text: string }
@@ -38,4 +38,47 @@ function todosReducer(state: TodosState, action: Action): TodosState {
     default:
       throw new Error("Error!");
   }
+}
+
+export function TodosContextProvider({
+  children
+}: {
+  children: React.ReactNode;
+}) {
+  const [todos, dispatch] = useReducer(todosReducer, [
+    {
+      id: 1,
+      text: "learn context",
+      done: true
+    },
+    {
+      id: 2,
+      text: "learn context2",
+      done: true
+    },
+    {
+      id: 3,
+      text: "learn context3",
+      done: false
+    }
+  ]);
+  return (
+    <TodosDispatchContext.Provider value={dispatch}>
+      <TodosStateContext.Provider value={todos}>
+        {children}
+      </TodosStateContext.Provider>
+    </TodosDispatchContext.Provider>
+  );
+}
+
+export function useTodosState() {
+  const state = useContext(TodosStateContext);
+  if (!state) throw new Error("TodosProvider not found");
+  return state;
+}
+
+export function useTodosDispatch() {
+  const dispatch = useContext(TodosDispatchContext);
+  if (!dispatch) throw new Error("TodosProvider not found");
+  return dispatch;
 }
