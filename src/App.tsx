@@ -5,9 +5,9 @@ import Greetings from "./Greetings";
 import Count from "./components/Count";
 import MyForm from "./MyForm";
 import ReducerSample from "./ReducerSample";
-import TodoForm from "./Todo/TodoForm";
-import TodoList from "./Todo/TodoList";
 import { TodosContextProvider } from "./context/TodosContext";
+import TodoForm from "./components/todo/TodoForm";
+import TodoList from "./components/todo/TodoList";
 
 const App: React.FC = () => {
   const [counter, setCounter] = useState<number>(0);
@@ -33,9 +33,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <TodosContextProvider>
-        <Count />
-      </TodosContextProvider>
+      <TodoForm />
+      <TodoList />
     </>
   );
 };
