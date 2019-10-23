@@ -53,7 +53,7 @@ function todosReducer(state: TodosState, action: Action): TodosState {
 
 // provider
 
-export function TodoosContextProvider({
+export function TodosContextProvider({
   children
 }: {
   children: React.ReactNode;
