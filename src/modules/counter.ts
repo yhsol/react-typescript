@@ -34,3 +34,5 @@ function counter(state: CounterState = initialState, action: CounterAction) {
       return state;
   }
 }
+
+export default counter;

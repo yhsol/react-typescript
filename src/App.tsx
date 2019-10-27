@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Form, Input } from "./input";
 import Number from "./number";
 import Greetings from "./Greetings";
-import Count from "./components/Count";
 import MyForm from "./MyForm";
 import ReducerSample from "./ReducerSample";
 import TodoForm from "./components/todo/TodoForm";
 import TodoList from "./components/todo/TodoList";
 import { TodosContextProvider } from "./contexts/TodosContext";
+import Counter from "./components/Counter";
+import TodoInsert from "./components/TodoInsert";
 
 const App: React.FC = () => {
   const [counter, setCounter] = useState<number>(0);
@@ -33,10 +34,8 @@ const App: React.FC = () => {
 
   return (
     <>
-      <TodosContextProvider>
-        <TodoForm />
-        <TodoList />
-      </TodosContextProvider>
+      <TodoInsert />
+      <TodoList />
     </>
   );
 };
