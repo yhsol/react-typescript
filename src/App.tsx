@@ -34,8 +34,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <TodoInsert />
-      <TodoList />
+      <Counter />
     </>
   );
 };
